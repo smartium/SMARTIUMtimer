@@ -5,7 +5,7 @@
 
 html, body, input {
   background-color: rgb(60,63,70);
-  color: #fff;
+  color: rgb(189,189,174);
   font-family: Arial;
   margin: 15px;
 }
@@ -23,8 +23,8 @@ input {
 }
 
 button {
-  background-color: #fff;
-  color: #000;
+  background-color: rgb(21,156,156);
+  color: rgb(60,63,70);
   border: none;
   box-shadow: 1px 1px 1px #888888;
   font-size: 1em;
@@ -34,6 +34,12 @@ button {
 button:active {
   margin-top: 1px;
   margin-left: 1px;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  color: grey;
 }
 
 .numbers, .numbers input{
@@ -78,4 +84,16 @@ button:active {
   background-color: green;
   color: #fff;
 
+}
+
+.github {
+  background-color: rgba(0,0,0,0);
+  color: rgb(21,156,156);
+  border: 1px solid rgb(21,156,156);
+  box-shadow: none;
+  position: absolute;
+  padding: 5px;
+  right: 25px;
+  bottom: 10px;
+  font-size: 1.2em;
 }
