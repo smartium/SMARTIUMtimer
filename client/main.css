@@ -4,9 +4,10 @@
 }
 
 html, body, input {
-  background-color: #000;
+  background-color: rgb(60,63,70);
   color: #fff;
   font-family: Arial;
+  margin: 15px;
 }
 
 h1 {
@@ -56,6 +57,13 @@ button:active {
 }
 
 #controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+}
+
+#logo {
   position: absolute;
   bottom: 20px;
   right: 20px;
