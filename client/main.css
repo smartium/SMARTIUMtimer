@@ -1,0 +1,73 @@
+@font-face {
+    font-family: myDigital;
+    src: url('fonts/Digital_Mono_Italic.ttf');
+}
+
+html, body, input {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial;
+}
+
+h1 {
+  font-size: 3vw;
+}
+
+input {
+  border: 1px solid grey;
+  font-size: 1em;
+  margin-bottom: 30px;
+  width: 400px;
+  padding: 5px;
+}
+
+button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  box-shadow: 1px 1px 1px #888888;
+  font-size: 1em;
+  padding: 10px;
+}
+
+button:active {
+  margin-top: 1px;
+  margin-left: 1px;
+}
+
+.numbers, .numbers input{
+  font-size: 3em;
+}
+
+.numbers input{
+  width: 250px;
+}
+
+#counter {
+  color: #ffff00;
+  font-size: 25vw;
+  font-family: 'myDigital';
+
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+#reset {
+  background-color: red;
+  color: #fff;
+}
+
+#start {
+  background-color: green;
+  color: #fff;
+
+}

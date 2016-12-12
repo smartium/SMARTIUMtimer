@@ -1,0 +1,18 @@
+<template name="home">
+  <h1>SMARTIUM timer (beta)</h1>
+
+  <h2>Criar contador</h2>
+
+  <form>
+    <div class="numbers">
+      <input type="number" id="hours" placeholder="HH" min="0" max="24"> :
+      <input type="number" id="minutes" placeholder="MM" min="0" max="59"> :
+      <input type="number" id="seconds" placeholder="SS" min="0" max="59">
+    </div>
+    <div class="texts">
+      Título <input type="text" id="title" placeholder="Texto para o título do contador"><br>
+      Texto para o final da contagem <input type="text" id="timeOver" value="Esgotado">
+    </div>
+    <button id="submit">CRIAR</button>
+  </form>
+</template>
