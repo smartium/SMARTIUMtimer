@@ -1,13 +1,14 @@
 <template name="presenter">
 <h1>{{title}}</h1>
 
-<div id="counter">
+<div id="counter" class="animated flash">
   {{getCountdown}}
 </div>
 
 <div id="controls">
-  <button id="start">{{btnStartText}}</button>
-  <button id="reset">ZERAR</button>
+  <button id="start">{{{btnStartText}}}</button>
+  <button id="reset"><i class="fa fa-refresh fa-2x"></i></button>&nbsp;&nbsp;
+  <button id="config"><i class="fa fa-cog"></i></button>
 </div>
 
 <div id="logo">

@@ -1,6 +1,6 @@
 var countdown = new ReactiveCountdown(0)
 state = new ReactiveVar('idle')
-btnStartText = new ReactiveVar('INICIAR')
+btnStartText = new ReactiveVar('<i class="fa fa-play fa-2x"></i>')
 timeAtPause = new ReactiveVar()
 
 
@@ -48,7 +48,7 @@ Template.presenter.events({
   'click #start'(e) {
     e.preventDefault()
     if (state.get() == 'idle') {
-      btnStartText.set('PAUSAR')
+      btnStartText.set('<i class="fa fa-pause fa-2x"></i>')
       countdown.start(function() {
         state.set('over')
       });
@@ -60,23 +60,37 @@ Template.presenter.events({
       console.log(timeAtPause.get());
       countdown.stop()
       state.set('paused')
-      btnStartText.set('CONTINUAR')
+      btnStartText.set('<i class="fa fa-play fa-2x"></i>')
     }
     else if (state.get() == 'paused') {
-      btnStartText.set('CONTINUAR')
+      btnStartText.set('<i class="fa fa-play fa-2x"></i>')
       countdown.start(function() {
         state.set('over')
       });
       countdown.add(timeAtPause.get()-1)
       state.set('running')
-      btnStartText.set('PAUSAR')
+      btnStartText.set('<i class="fa fa-play fa-2x"></i>')
     }
   },
 
   'click #reset'() {
-    btnStartText.set('INICIAR')
+    btnStartText.set('<i class="fa fa-play fa-2x"></i>')
     countdown.stop()
     countdown.add(varTemplate.get().time)
     state.set('idle')
+  },
+
+  'click #config'() {
+    btnStartText.set('<i class="fa fa-play fa-2x"></i>')
+    countdown.stop()
+    countdown.add(varTemplate.get().time)
+    state.set('idle')
+
+    varTemplate.set({
+      template: 'home',
+      time: totalTime,
+      title: title,
+      text: text
+    })
   }
 })

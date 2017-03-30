@@ -61,6 +61,7 @@ momentjs:moment@2.17.1
 mongo@1.1.14
 mongo-id@1.0.6
 msavin:mongol@2.0.1
+natestrauser:animate-css@3.5.1
 npm-mongo@2.2.11_2
 oauth@1.1.12
 oauth2@1.1.11
