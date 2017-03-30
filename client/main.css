@@ -97,3 +97,11 @@ footer {
   bottom: 10px;
   font-size: 1.2em;
 }
+
+.over {
+  color: red !important;
+}
+
+.flash {
+  animation-duration: 3.5s;
+}
