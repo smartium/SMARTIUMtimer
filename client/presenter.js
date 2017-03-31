@@ -71,15 +71,13 @@ Template.presenter.events({
       btnStartText.set('<i class="fa fa-play fa-2x"></i>')
     }
     else if (state.get() == 'paused') {
-      btnStartText.set('<i class="fa fa-play fa-2x"></i>')
+      btnStartText.set('<i class="fa fa-pause fa-2x"></i>')
+      countdownClass.set('');
       countdown.start(function() {
-        countdownClass.set('infinite over');
         state.set('over')
       });
       countdown.add(timeAtPause.get()-1)
-      countdownClass.set('infinite over');
       state.set('running')
-      btnStartText.set('<i class="fa fa-play fa-2x"></i>')
     }
   },
 
@@ -98,11 +96,16 @@ Template.presenter.events({
     countdownClass.set('');
     state.set('idle')
 
+    BlazeLayout.render("mainLayout", {content: "home"});
+
     varTemplate.set({
       template: 'home',
       time: totalTime,
-      title: title,
-      text: text
+      title: varTemplate.get().title,
+      text: varTemplate.get().text,
+      hours: varTemplate.get().hours,
+      minutes: varTemplate.get().minutes,
+      seconds: varTemplate.get().seconds
     })
   }
 })

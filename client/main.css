@@ -42,8 +42,13 @@ footer {
   color: grey;
 }
 
+.numbers {
+  text-align: center;
+}
+
 .numbers, .numbers input{
   font-size: 3em;
+  text-align: center;
 }
 
 .numbers input{
@@ -89,13 +94,18 @@ footer {
 .github {
   background-color: rgba(0,0,0,0);
   color: rgb(21,156,156);
-  border: 1px solid rgb(21,156,156);
+  /*border: 1px solid rgb(21,156,156);*/
   box-shadow: none;
   position: absolute;
   padding: 5px;
   right: 25px;
   bottom: 10px;
   font-size: 1.2em;
+}
+
+.github:hover {
+  transform: rotate(360deg);
+  transition-duration: .3s;
 }
 
 .over {

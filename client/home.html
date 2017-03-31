@@ -7,13 +7,13 @@
 
     <form>
       <div class="numbers">
-        <input type="number" id="hours" placeholder="HH" min="0" max="24"> :
-        <input type="number" id="minutes" placeholder="MM" min="0" max="59"> :
-        <input type="number" id="seconds" placeholder="SS" min="0" max="59">
+        <input type="number" id="hours" placeholder="HH" min="0" max="24" value="{{timerData.hours}}"> :
+        <input type="number" id="minutes" placeholder="MM" min="0" max="59" value="{{timerData.minutes}}"> :
+        <input type="number" id="seconds" placeholder="SS" min="0" max="59" value="{{timerData.seconds}}">
       </div>
       <div class="texts">
-        Título <input type="text" id="title" placeholder="Texto para o título do contador"><br>
-        Texto para o final da contagem <input type="text" id="timeOver" value="Esgotado">
+        Título <input type="text" id="title" placeholder="Texto para o título do contador" value="{{timerData.title}}"><br>
+        Texto para o final da contagem <input type="text" id="timeOver" value="{{timerData.text}}">
       </div>
       <button id="submit">CRIAR</button>
     </form>
@@ -21,7 +21,7 @@
     <footer>
       Projeto de código livre desenvolvido pela SMARTIUM.
     </footer>
-    <a href="//smartium.io"><button class="github"><i class="fa fa-github" aria-hidden="true"></i> veja no github</button></a>
+    <a href="https://github.com/smartium/SMARTIUMtimer"><button class="github"><i class="fa fa-github fa-3x" aria-hidden="true"></i></button></a>
 
   </div>
 </template>

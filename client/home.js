@@ -1,6 +1,24 @@
 // token = 'nulo';
 currentCountdown = new ReactiveVar()
 
+Template.home.onRendered(()=> {
+  if (parseInt(varTemplate.get().time) > 0) {
+    console.log(varTemplate.get().time);
+  }
+})
+
+Template.home.helpers({
+  timerData() {
+    return {
+      hours: varTemplate.get().hours/3600,
+      minutes: varTemplate.get().minutes/60,
+      seconds: parseInt(varTemplate.get().seconds),
+      title: varTemplate.get().title,
+      text: varTemplate.get().text
+    }
+  }
+})
+
 Template.home.events({
   'submit'(e) {
     e.preventDefault()
@@ -11,11 +29,16 @@ Template.home.events({
     title = e.target.title.value
     totalTime = hours + minutes + seconds
 
+    BlazeLayout.render("mainLayout", {content: "presenter"});
+
     varTemplate.set({
       template: 'presenter',
       time: totalTime,
       title: title,
-      text: text
+      text: text,
+      hours: hours,
+      minutes: minutes,
+      seconds: parseInt(seconds)
     })
   }
   // 'click #newCountdown'() {
