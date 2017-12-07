@@ -1,18 +1,38 @@
 <template name="presenter">
-<h1>{{title}}</h1>
+  <div class="presenter">
+    <div class="presenter-login">
+      {{> login}}
+    </div>
 
-<div id="counter" class="animated flash {{countdownClass}}">
-  {{getCountdown}}
-</div>
+    <h1 class="title">{{title}}</h1>
 
-<div id="controls">
-  <button id="start">{{{btnStartText}}}</button>
-  <button id="reset"><i class="fa fa-refresh fa-2x"></i></button>&nbsp;&nbsp;
-  <button id="config"><i class="fa fa-cog"></i></button>
-</div>
+    <div id="counter" class="animated flash {{countdownClass}}">
+      {{getCountdown}}
+    </div>
 
-<div id="logo">
-  <a href="//smartium.io"><img src="images/logo-timer.svg" alt="SMARTIUM timer" height="40px"/></a>
-</div>
+    <div id="controls">
+      <button id="start">{{{btnStartText}}}</button>
+      <button id="reset"><i class="fa fa-refresh fa-2x"></i></button>&nbsp;&nbsp;
+      <button id="config"><i class="fa fa-cog"></i></button>
+      <span class="counters">
+        {{#with counters}}
+        {{#if this.count}}
+        {{#each this}}
+        <button class="preset-button">
+          <div class="info">
+            {{hr data.hours}}{{min data.minutes}}:{{sec data.seconds}}<br/>
+          </div>
+        </button>
+        {{/each}}
+        {{/if}}
+        {{/with}}
+      </span>
+    </div>
 
+
+
+    <div id="logo">
+      <a href="//smartium.io"><img src="images/logo-timer.svg" alt="SMARTIUM timer" height="40px"/></a>
+    </div>
+  </div>
 </template>

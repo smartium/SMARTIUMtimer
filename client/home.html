@@ -1,27 +1,46 @@
 <template name="home">
-  <div class="container animated fadeIn">
-    <!-- <h1>SMARTIUM timer (beta)</h1> -->
-    <a href="//smartium.io"><img src="images/logo-timer.svg" alt="SMARTIUM timer" height="100px"/></a>
-
-    <h2>Criar contador</h2>
-
-    <form>
-      <div class="numbers">
-        <input type="number" id="hours" placeholder="HH" min="0" max="24" value="{{timerData.hours}}"> :
-        <input type="number" id="minutes" placeholder="MM" min="0" max="59" value="{{timerData.minutes}}"> :
-        <input type="number" id="seconds" placeholder="SS" min="0" max="59" value="{{timerData.seconds}}">
+  <div class="home">
+    <div class="container animated fadeIn">
+      <a href="//smartium.io" class="home-logo"><img src="images/logo-timer.svg" alt="SMARTIUM timer" height="100px"/></a>
+      {{> login}}
+      <div class="counters">
+        {{#with counters}}
+        {{#if this.count}}
+        <h2>Meus contadores</h2>
+        {{#each this}}
+        <button class="preset-button">
+          <span class="remove"><i class="fa fa-minus-circle"></i></span>
+          <div class="info">
+            <span>{{data.title}}</span><br/>
+            {{hr data.hours}}{{min data.minutes}}:{{sec data.seconds}}<br/>
+            <span>{{data.text}}</span>
+          </div>
+        </button>
+        {{/each}}
+        {{/if}}
+        {{/with}}
       </div>
-      <div class="texts">
-        Título <input type="text" id="title" placeholder="Texto para o título do contador" value="{{timerData.title}}"><br>
-        Texto para o final da contagem <input type="text" id="timeOver" value="{{timerData.text}}">
-      </div>
-      <button id="submit">CRIAR</button>
-    </form>
 
-    <footer>
-      Projeto de código livre desenvolvido pela SMARTIUM.
-    </footer>
-    <a href="https://github.com/smartium/SMARTIUMtimer"><button class="github"><i class="fa fa-github fa-3x" aria-hidden="true"></i></button></a>
+      <h2>Criar contador</h2>
 
+      <form id="create-counter">
+        <div class="numbers">
+          <input type="number" id="hours" placeholder="HH" min="0" max="24" value="{{timerData.hours}}"> :
+          <input type="number" id="minutes" placeholder="MM" min="0" max="59" value="{{timerData.minutes}}"> :
+          <input type="number" id="seconds" placeholder="SS" min="0" max="59" value="{{timerData.seconds}}">
+        </div>
+        <div class="texts">
+          Título <input type="text" id="title" placeholder="Texto para o título do contador" value="{{timerData.title}}"><br>
+          Texto para o final da contagem <input type="text" id="timeOver" value="{{timerData.text}}">
+        </div>
+        <button type="submit">CRIAR</button>
+      </form>
+
+      <footer>
+        Projeto de código livre desenvolvido pela SMARTIUM.
+      </footer>
+      <!-- <a href="https://github.com/smartium/SMARTIUMtimer"><button class="github"><i class="fa fa-github fa-3x" aria-hidden="true"></i></button></a> -->
+    </div>
+    <a href="https://github.com/smartium/SMARTIUMtimer"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
   </div>
 </template>

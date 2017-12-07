@@ -1,4 +1,5 @@
-var countdown = new ReactiveCountdown(0)
+countdown = new ReactiveCountdown(0)
+time = new ReactiveVar();
 state = new ReactiveVar('idle')
 btnStartText = new ReactiveVar('<i class="fa fa-play fa-2x"></i>')
 timeAtPause = new ReactiveVar()
@@ -6,14 +7,12 @@ countdownClass = new ReactiveVar('')
 
 
 Template.presenter.onCreated(() => {
-  // register = Countdowns.findOne({token: currentCountdown.get()})
-  // console.log(register);
   seconds = varTemplate.get().time
   if (seconds < 3600) {
-    time = moment().startOf('day').seconds(varTemplate.get().time).format('mm:ss')
+    time.set(moment().startOf('day').seconds(varTemplate.get().time).format('mm:ss'));
   }
   else {
-    time = moment().startOf('day').seconds(varTemplate.get().time).format('H:mm:ss')
+    time.set(moment().startOf('day').seconds(varTemplate.get().time).format('H:mm:ss'))
   }
 
 })
@@ -21,7 +20,7 @@ Template.presenter.onCreated(() => {
 Template.presenter.helpers({
   getCountdown() {
     if (state.get() == 'idle') {
-      return time
+      return time.get();
     }
     else if (state.get() == 'running' || state.get() == 'paused') {
       if (seconds < 3600) {
@@ -34,6 +33,10 @@ Template.presenter.helpers({
     else if (state.get() == 'over') {
       return varTemplate.get().text
     }
+  },
+
+  counters() {
+    return Counters.find({userId: Meteor.userId()}, {sort: {'data.time': 1}})
   },
 
   btnStartText() {
@@ -106,6 +109,30 @@ Template.presenter.events({
       hours: varTemplate.get().hours,
       minutes: varTemplate.get().minutes,
       seconds: varTemplate.get().seconds
-    })
+    });
+  },
+
+  'click .preset-button'(e) {
+    e.preventDefault();
+
+
+
+    varTemplate.set({
+      template: this.data.template,
+      time: this.data.time,
+      title: this.data.title,
+      text: this.data.text,
+      hours: this.data.hours,
+      minutes: this.data.minutes,
+      seconds: this.data.seconds
+    });
+
+    seconds = varTemplate.get().time
+    if (seconds < 3600) {
+      time.set(moment().startOf('day').seconds(varTemplate.get().time).format('mm:ss'))
+    }
+    else {
+      time.set(moment().startOf('day').seconds(varTemplate.get().time).format('H:mm:ss'))
+    }
   }
 })

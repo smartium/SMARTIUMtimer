@@ -3,18 +3,6 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-FlowRouter.route('/', {
-  action: function() {
-    BlazeLayout.render("mainLayout", {content: "home"});
-  }
-});
-
-FlowRouter.route('/controller', {
-    action: function() {
-        BlazeLayout.render("controls");
-    }
-});
-
 Meteor.startup(() => {
 })
 

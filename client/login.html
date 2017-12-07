@@ -1,8 +1,9 @@
 <template name="login">
+  <div class="login">
     {{#if currentUser}}
-        Olá {{currentUser.services.facebook.first_name}}!
-        <button id="logout">Logout</button>
+    <img id="logout" src="{{currentUser.profile.picture}}" alt="" /><br />
     {{else}}
-        <button id="facebook-login" class="btn btn-default"> Login with Facebook</button>
+    <button id="facebook-login" class="button-facebook-login"><i class="fa fa-facebook-square"></i> cadastrar ou entrar</button>
     {{/if}}
+  </div>
 </template>
